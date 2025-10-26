@@ -10,12 +10,11 @@ connection = pika.BlockingConnection(
 )
 channel = connection.channel()
 
-# Создание устойчивого обменника типа topic
 channel.exchange_declare(exchange='IKBO-12-22_polyakov_topic',
                          exchange_type='topic', durable=True)
 
-routing_key = sys.argv[1] if len(sys.argv) > 1 else 'anonymous.info'
-message = ' '.join(sys.argv[2:]) or 'Hello World-'
+routing_key = "user.info"
+message = "Пользователь залогинился---"
 
 channel.basic_publish(
     exchange='IKBO-12-22_polyakov_topic',

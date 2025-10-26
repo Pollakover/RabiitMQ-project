@@ -34,9 +34,7 @@ channel.exchange_declare(exchange='IKBO-12-22_polyakov_topic',
 result = channel.queue_declare(queue='', exclusive=True)
 queue_name = result.method.queue
 
-binding_keys = sys.argv[1:]
-if not binding_keys:
-    sys.exit(1)
+binding_keys = ["*.error", "*.warning"]
 
 for binding_key in binding_keys:
     channel.queue_bind(

@@ -14,8 +14,8 @@ channel = connection.channel()
 channel.exchange_declare(exchange='IKBO-12-22_polyakov_direct',
                          exchange_type='direct')
 
-severity = sys.argv[1] if len(sys.argv) > 1 else 'info'
-message = ' '.join(sys.argv[2:]) or 'Hello World*'
+severity = "info"
+message = "Важное информационное сообщение***"
 
 channel.basic_publish(
     exchange='IKBO-12-22_polyakov_direct',

@@ -31,7 +31,7 @@ channel.exchange_declare(exchange='IKBO-12-22_polyakov_direct',
 result = channel.queue_declare(queue='', exclusive=True)
 queue_name = result.method.queue
 
-severities = sys.argv[1:]
+severities = ['info']
 if not severities:
     print("Usage: consumer_direct(info).py info")
     sys.exit(1)
